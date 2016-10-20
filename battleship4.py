@@ -1,3 +1,24 @@
+def welcome():
+    print ("\n", "\t" *6, "!!WELCOME TO THE BATTLESHIP GAME!! \n \n")
+    command = input("You can start now with the 'start' command or read the how-to-play with the 'howto' command! Please specify a command [start, howto]: ")
+
+    if (command == "howto"):
+        cls()
+        print ("\t" * 6, "How-TO-PLAY \n")
+        print ("The purpose of the game is to destroy the opposing player's battleships, and ends with a fight to the death. \n")
+        print ("1. In the first phases the two player can secretly arranges their ships on their primary grid. You can’t take two ship on the same coordinate and the ships cannot overlap.\n")
+        print ("2. After the ships have been positioned, the first player can attack and choose the coordinate where he/she would like to shoot. The attacking player notes the hit or miss the ship. If she/he hitting the another player ship, he/she get a point.\n")
+        print ("3. That player win the game, who has more points :)")
+        time.sleep(7)
+        cls()
+    elif (command == "start"):
+        cls()
+        print ("\n", "\t" * 6, "Let's play Battleship!")
+        time.sleep(3)
+    else:
+        welcome()
+
+
 #Function for clearing screen
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
@@ -62,6 +83,7 @@ def place_map1():
             print("In the last round you selected the ", column_num + 1, ". column.", sep = "")
             i +=1
     #Clearing the screen
+    time.sleep(5)
     cls()
     return map1
 
@@ -96,6 +118,7 @@ def place_map2():
             print("In the last round you selected the ", column_num + 1, ". column.", sep = "")
             i +=1
     #Clearing the screen
+    time.sleep(5)
     cls()
     return map2
 
@@ -226,7 +249,7 @@ def result(player1_result, player2_result):
 
 #The main function contains different function calls
 def main():
-    print ("Let's play Battleship!")
+    welcome()
     print ("First phase.\nSelect a row number then a column number to place a ship")
     placedship_map1 = place_map1()
     placedship_map2 = place_map2()
@@ -236,4 +259,5 @@ def main():
 
 
 import os
+import time
 main()
